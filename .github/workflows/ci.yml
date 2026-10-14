@@ -1,0 +1,141 @@
+name: ci
+
+# Validates every source record, builds the unsigned feed candidate twice and
+# compares the two builds byte for byte, checks that the candidate loads in
+# every Socair release the feed supports, and uploads the candidate for the
+# maintainer to verify and sign offline (RELEASING.md). Nothing here holds a
+# signing key, signs a release, or publishes anything. Every job is hermetic
+# except the checkouts and the Go toolchain download.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: records validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: gofmt
+        run: |
+          out=$(gofmt -l .)
+          if [ -n "$out" ]; then echo "$out"; exit 1; fi
+      - name: go vet
+        run: go vet ./...
+      - name: builder tests
+        run: go test -race ./...
+      - name: every record, citation, text, license, and NOTICE validates
+        run: go run ./tools/feedbuild check
+
+  candidate:
+    name: candidate builds reproducibly
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: build the candidate twice
+        run: |
+          go build -o "$RUNNER_TEMP/feedbuild" ./tools/feedbuild
+          "$RUNNER_TEMP/feedbuild" build -out "$RUNNER_TEMP/first"
+          "$RUNNER_TEMP/feedbuild" build -out "$RUNNER_TEMP/second" > /dev/null
+      - name: the two builds are byte-identical
+        run: diff -r "$RUNNER_TEMP/first" "$RUNNER_TEMP/second"
+      - name: every file matches SHA256SUMS
+        working-directory: ${{ runner.temp }}/first
+        run: sha256sum --check --strict --quiet SHA256SUMS
+      - name: summary
+        run: |
+          {
+            echo "### Unsigned feed candidate for ${GITHUB_SHA}"
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/first/BUILD-REPORT.txt"
+            echo '```'
+            echo
+            echo "SHA-256 of SHA256SUMS: \`$(sha256sum "$RUNNER_TEMP/first/SHA256SUMS" | cut -d' ' -f1)\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: socair-feed-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/first
+          if-no-files-found: error
+          retention-days: 30
+
+  socair:
+    name: loads in socair ${{ matrix.socair.name }}
+    needs: check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        socair:
+          # The oldest release whose feed loader reads template texts and
+          # tokenizer tables, and the main commit the pipeline was built
+          # against (feed rollback protection and the expiry warning, #232).
+          - name: v0.1.0-rc.3
+            ref: 6b1a5b51c5f23b1ac6f4f964bbdda5b141408d8d # v0.1.0-rc.3
+          - name: main@ddfe650b5f50
+            ref: ddfe650b5f50163851bda8dfe7d1775c514dceab # main, 2026-10-14
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: feed
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: defilantech/socair
+          ref: ${{ matrix.socair.ref }}
+          path: socair
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: socair/go.mod
+          cache: false
+      - name: build socair (vendored, nothing fetched)
+        working-directory: socair
+        run: go build -mod=vendor -o "$RUNNER_TEMP/socair" ./cmd/socair
+      - name: build the candidate, and a test build with the templates awaiting review
+        working-directory: feed
+        run: |
+          go run ./tools/feedbuild build -out "$RUNNER_TEMP/candidate"
+          go run ./tools/feedbuild build -include-unreviewed -out "$RUNNER_TEMP/test"
+      - name: sign both with a throwaway key made here, and verify them
+        run: |
+          socair="$RUNNER_TEMP/socair"
+          mkdir -p "$RUNNER_TEMP/key"
+          "$socair" key gen --out "$RUNNER_TEMP/key/throwaway"
+          expires=$(date -u -d '+1 day' +%Y-%m-%dT%H:%M:%SZ)
+          for build in candidate test; do
+            "$socair" feed sign "$RUNNER_TEMP/$build/feed" --key "$RUNNER_TEMP/key/throwaway.key" \
+              --issuer "socair-feed CI (throwaway key)" --version "ci-$GITHUB_RUN_ID-$build" --expires "$expires"
+            "$socair" feed verify "$RUNNER_TEMP/$build/feed" --keys "$RUNNER_TEMP/key/throwaway.pub"
+          done
+          rm -f "$RUNNER_TEMP/key/throwaway.key"
+      - name: a scan with the feed has a Known-bad row that is not NOT_TESTED (issue 159)
+        env:
+          SOCAIR_FEED_KEYS: ${{ runner.temp }}/key/throwaway.pub
+          SOCAIR_SCAN_TMP: ${{ runner.temp }}
+        run: |
+          for build in candidate test; do
+            SOCAIR_FEED="$RUNNER_TEMP/$build/feed" "$RUNNER_TEMP/socair" scan feed/LICENSE > "$RUNNER_TEMP/$build-report.json"
+            row=$(jq -r '.checks[] | select(.name == "Known-bad hash match") | .status + ": " + .notes' "$RUNNER_TEMP/$build-report.json")
+            echo "$build: $row"
+            case "$row" in PASS:*|FAIL:*) ;; *) exit 1 ;; esac
+          done

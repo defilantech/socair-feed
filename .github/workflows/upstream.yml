@@ -1,0 +1,67 @@
+name: upstream
+
+# The networked checks, weekly and on demand. They never gate a pull request
+# or a release; a failure means a person should look.
+#
+# - upstream: every report page still prints its hash or names its
+#   repository, the Hub still lists each class 2 file with the same bytes at
+#   the same revision, every pinned template and tokenizer file still has its
+#   recorded bytes, and socair re-derives every tokenizer table byte for byte.
+#   It downloads pages, Hub metadata, and small JSON and template files; it
+#   never downloads a reported file.
+# - expiry: the latest published feed is not in the last third of its
+#   validity, the window in which Socair starts warning every site that uses
+#   it. A missed renewal stops every scan at every site at expiry.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: feed
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: defilantech/socair
+          ref: ddfe650b5f50163851bda8dfe7d1775c514dceab # main, 2026-10-14: the socair that derived the tables
+          path: socair
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: socair/go.mod
+          cache: false
+      - name: build socair
+        working-directory: socair
+        run: go build -mod=vendor -o "$RUNNER_TEMP/socair" ./cmd/socair
+      - name: re-check every record against its sources
+        working-directory: feed
+        run: go run ./tools/feedbuild upstream -socair "$RUNNER_TEMP/socair"
+
+  expiry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: the latest published feed is not due for renewal
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo "no feed has been published yet"
+            exit 0
+          fi
+          gh release download --repo "$GITHUB_REPOSITORY" --pattern feed.dsse.json --dir "$RUNNER_TEMP/latest"
+          go run ./tools/feedbuild expiry "$RUNNER_TEMP/latest/feed.dsse.json"
