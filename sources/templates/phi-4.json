@@ -1,0 +1,37 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "phi-4",
+  "status": "active",
+  "sha256": "fe4120415a3858b873955c92ce3a103a95bc97c2cb00b72e62659aaf0f891ee5",
+  "bytes": 462,
+  "text": "texts/templates/fe4120415a3858b873955c92ce3a103a95bc97c2cb00b72e62659aaf0f891ee5.jinja",
+  "what": "Chat template of Phi-4.",
+  "upstream": {
+    "repo": "microsoft/phi-4",
+    "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/microsoft/phi-4/blob/2db69c1c3e91a05d2c64a3185acfbaf36f744e25/tokenizer_config.json",
+    "file_sha256": "2b707658c7c2b41580155a45503d7d3b42dc2f530bef678f67a39bf5d10b0510",
+    "file_bytes": 17737,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-Microsoft.txt",
+    "license_file_sha256": "c49419617a6070bcb197cfe272f7007fdec3e790dbb529cb995473bd69c0bd51",
+    "copyright": "Copyright (c) Microsoft Corporation."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in microsoft/phi-4 at revision 2db69c1c3e91 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 4 of 4 probe conversations; text it adds of its own: nothing; nothing is added under a content condition."
+  ],
+  "notes": "Writes each system, user, and assistant message as <|im_start|>role<|im_sep|>content<|im_end|>, ignores any other role, and adds the assistant opener at the generation prompt. No default system prompt, no tools, and no condition on message text.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "gemma-4",
+  "status": "active",
+  "what": "Tokenizer of Gemma 4 (262,144 ids).",
+  "upstream": {
+    "repo": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/google/gemma-4-E4B-it/blob/ee0ef6023621cff504d758262d4e04895a5af4a2/tokenizer.json",
+    "file_sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "file_bytes": 32169626,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 and links https://ai.google.dev/gemma/docs/gemma_4_license, which is the Apache License 2.0 text (read 2026-10-14); the repository has no LICENSE file, so the canonical text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [
+    {
+      "repo": "google/gemma-4-12B-it",
+      "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "file": "tokenizer.json",
+      "read_on": "2026-10-14",
+      "how": "Hub API LFS SHA-256"
+    },
+    {
+      "repo": "google/gemma-4-31B-it",
+      "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+      "file": "tokenizer.json",
+      "read_on": "2026-10-14",
+      "how": "Hub API LFS SHA-256"
+    }
+  ],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/gemma-4.json",
+    "sha256": "790112c4f2ee2fbd37c3cf83d44c708d532d92af571490e67dd9529ae38e01dd",
+    "tokens": 262144,
+    "unassigned": 0,
+    "vocab_sha256": "65bcb7843e9c9d0b253e891da6037dacb417551e77d8ea500f5e845a78b824d6",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

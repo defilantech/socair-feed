@@ -1,0 +1,6 @@
+# Hashes that must never be on the denylist: files known to be legitimate
+# that sit beside reported files, so a careless entry could take one.
+# The builder also refuses any hash a template or tokenizer record names.
+# <sha256> <what it is, and where it was seen>
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 the empty file
+9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347 tokenizer.model, the 499,723-byte SentencePiece model of the LLaMA tokenizer; shipped by microsoft/Phi-3-mini-4k-instruct@f39ac1d28e92 and also present in the reported repositories star23/baller13, star23/baller8, glockr1/ballr7 and who-r-u0000/0000000000000000000000000000000000000 (Hub API LFS ids, read 2026-10-14)

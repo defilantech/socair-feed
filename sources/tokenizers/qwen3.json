@@ -1,0 +1,31 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "qwen3",
+  "status": "active",
+  "what": "Tokenizer of Qwen3 (the Qwen2.5 vocabulary plus four added tokens, 151,669 ids).",
+  "upstream": {
+    "repo": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/Qwen/Qwen3-8B/blob/b968826d9c46dd6066d109eabc6255188de91218/tokenizer.json",
+    "file_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "file_bytes": 11422654,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "LICENSE file in the repository at this revision (Apache License 2.0, appendix filled in as Copyright 2024 Alibaba Cloud) and the card's license: apache-2.0",
+    "license_text": "LICENSES/Apache-2.0-Qwen.txt",
+    "license_file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "copyright": "Copyright 2024 Alibaba Cloud."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/qwen3.json",
+    "sha256": "15612116049546fe230d2be706c4284c06ac1a5ae2ed07a49bcc81b7aa910bc2",
+    "tokens": 151669,
+    "unassigned": 0,
+    "vocab_sha256": "b10aff50345a9d6f79b33bf4c51bbbe489ffee09222c654b53acbe07d5e0f5eb",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

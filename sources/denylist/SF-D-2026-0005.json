@@ -1,0 +1,23 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0005",
+  "status": "active",
+  "sha256": "6db01158b044f178c45754666e2cbc0365f394e953fbf99ec34aa5304d5b79b1",
+  "file": "loader.py",
+  "size": null,
+  "kind": "loader-script",
+  "what": "Python loader from the campaign that typosquatted OpenAI's Privacy Filter as Open-OSS/privacy-filter: it runs decoy code, then fetches a command from jsonkeeper.com and runs it with PowerShell. The report lists this hash among its file hashes without naming the repository that held it; it names SF-D-2026-0006 as the copy in the anthfu repositories.",
+  "evidence": {
+    "class": 1,
+    "basis": "HiddenLayer prints this SHA-256 for loader.py in the report's indicators of compromise and analyses the loader as stage 2 of the attack chain.",
+    "source": {
+      "publisher": "HiddenLayer",
+      "title": "Malware Found in Trending Hugging Face Repository \"Open-OSS/privacy-filter\"",
+      "url": "https://www.hiddenlayer.com/research/malware-found-in-trending-hugging-face-repository-open-oss-privacy-filter",
+      "published": "2026-05-07",
+      "read_on": "2026-10-14",
+      "quote": "File Hashes (SHA-256) / 6db01158b044f178c45754666e2cbc0365f394e953fbf99ec34aa5304d5b79b1 — loader.py"
+    }
+  },
+  "added": "2026-10-14"
+}

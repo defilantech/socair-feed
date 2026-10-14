@@ -1,0 +1,39 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "gpt-oss",
+  "status": "active",
+  "what": "Tokenizer of gpt-oss (o200k_harmony, 200,019 ids).",
+  "upstream": {
+    "repo": "openai/gpt-oss-20b",
+    "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/openai/gpt-oss-20b/blob/6cee5e81ee83917806bbde320786a8fb61efebee/tokenizer.json",
+    "file_sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3",
+    "file_bytes": 27868174,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "LICENSE file in the repository at this revision (Apache License 2.0) and the card's license: apache-2.0",
+    "license_text": "LICENSES/Apache-2.0-gpt-oss.txt",
+    "license_file_sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "copyright": "The upstream LICENSE leaves the appendix's copyright line unfilled."
+  },
+  "also_identical_at": [
+    {
+      "repo": "openai/gpt-oss-120b",
+      "revision": "b5c939de8f754692c1647ca79fbf85e8c1e70f8a",
+      "file": "tokenizer.json",
+      "read_on": "2026-10-14",
+      "how": "Hub API LFS SHA-256"
+    }
+  ],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/gpt-oss.json",
+    "sha256": "b45c1688f6972f75d97120a8bfd7ce3e651b1d4e07ab7b533a7d8d170fb59871",
+    "tokens": 200019,
+    "unassigned": 0,
+    "vocab_sha256": "3e2d35da8df153e6a04a24070aa4ce8cd9af57a110709d8353f79803c40ecaed",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "mistral-v3",
+  "status": "active",
+  "what": "Tokenizer of Mistral-7B-Instruct-v0.3 (the v3 SentencePiece vocabulary, 32,768 ids).",
+  "upstream": {
+    "repo": "mistralai/Mistral-7B-Instruct-v0.3",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3/blob/c170c708c41dac9275d15a8fff4eca08d52bab71/tokenizer.json",
+    "file_sha256": "e553af6fff7d7ad76e830608b218c5c0b0822998d5a1a96099a74cd3c1cb1a49",
+    "file_bytes": 1961548,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 at this revision; the repository has no LICENSE file, so the canonical Apache License 2.0 text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/mistral-v3.json",
+    "sha256": "f65f259fd343088b4d994a627eb401b099fd373af89a6186d4b1c24bc312cfa8",
+    "tokens": 32768,
+    "unassigned": 0,
+    "vocab_sha256": "53573a20b877bec907aca80770924377f95984212f3f8d22ada983c186d8cbbb",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

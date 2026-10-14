@@ -1,0 +1,43 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "gemma-4-it",
+  "status": "active",
+  "sha256": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
+  "bytes": 18683,
+  "text": "texts/templates/ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4.jinja",
+  "what": "Chat template of Gemma 4 12B-it and 31B-it (Apache-2.0).",
+  "upstream": {
+    "repo": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "file": "chat_template.jinja",
+    "url": "https://huggingface.co/google/gemma-4-12B-it/blob/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7/chat_template.jinja",
+    "file_sha256": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
+    "file_bytes": 18683,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 and links https://ai.google.dev/gemma/docs/gemma_4_license, which is the Apache License 2.0 text (read 2026-10-14); the repository has no LICENSE file, so the canonical text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [
+    {
+      "repo": "google/gemma-4-31B-it",
+      "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+      "file": "chat_template.jinja",
+      "read_on": "2026-10-14",
+      "how": "downloaded and compared"
+    }
+  ],
+  "checks": [
+    "Byte-identical to upstream: chat_template.jinja in google/gemma-4-12B-it at revision 707f0a3b8a3c equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 6 of 6 probe conversations; text it adds of its own: the same scaffolding as gemma-4-e4b-it, and an empty <|channel>thought block at the generation prompt when thinking is off; nothing is added under a content condition."
+  ],
+  "notes": "The gemma-4-e4b-it text with two additions: one blank line, and at the generation prompt, when thinking is not enabled, an empty thought channel (<|channel>thought newline <channel|>) so the model answers without reasoning. Conditions test roles, part types, enable_thinking, and tools; none tests message text.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

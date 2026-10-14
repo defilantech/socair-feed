@@ -1,0 +1,23 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0004",
+  "status": "active",
+  "sha256": "0aa6f668e4a231d2b450f27edc0037513e9f1cbb308e923f79c393e9890d8a73",
+  "file": "ws_linux_amd64",
+  "size": 2945204,
+  "kind": "executable",
+  "what": "Go ELF binary (a VShell beacon) stored in the same Hugging Face repository as the pickles, which download and run it.",
+  "evidence": {
+    "class": 1,
+    "basis": "Rapid7 prints this SHA-256 for ws_linux_amd64 in the report's indicators of compromise and in its analysis of the beacon the pickles fetch from the Hugging Face repository.",
+    "source": {
+      "publisher": "Rapid7",
+      "title": "From .pth to p0wned: Abuse of Pickle Files in AI Model Supply Chains",
+      "url": "https://www.rapid7.com/blog/post/from-pth-to-p0wned-abuse-of-pickle-files-in-ai-model-supply-chains/",
+      "published": "2025-07-01",
+      "read_on": "2026-10-14",
+      "quote": "Filename: ws_linux_amd64 / Filesize: 2945204 bytes (2.8 MB) / MD5: 8b58b07e167aa2bb975a3fce8f6b1b21 / SHA1: 24d0d7ff7fa7ee8723f2cb49220170608aa8c579 / SHA256: 0aa6f668e4a231d2b450f27edc0037513e9f1cbb308e923f79c393e9890d8a73"
+    }
+  },
+  "added": "2026-10-14"
+}

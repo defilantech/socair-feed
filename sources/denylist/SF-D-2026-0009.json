@@ -1,0 +1,34 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0009",
+  "status": "active",
+  "sha256": "e860464f73f56fe8a00eca43c1340d030ca1cd103474aa53ddd17476e2a3582d",
+  "file": "pytorch_model.bin",
+  "size": 231134,
+  "kind": "pickle-checkpoint",
+  "what": "pytorch_model.bin of star23/baller8, a repository the Hub disabled after users reported a malicious payload in it.",
+  "evidence": {
+    "class": 2,
+    "basis": "JFrog reports that users found a dangerously malicious payload in star23/baller8 and that the Hub blocked the model after their reports; JFrog does not show this file's payload. The repository is disabled and unchanged since 2023-12-13, before the report; this is the LFS object id the Hub API lists for its pytorch_model.bin, tied to the listed blob id by the pointer check.",
+    "source": {
+      "publisher": "JFrog",
+      "title": "Examining Malicious Hugging Face ML Models with Silent Backdoor",
+      "url": "https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/",
+      "published": "2024-02-27",
+      "read_on": "2026-10-14",
+      "quote": "Note that for another model of star23, users reported that the model contained a dangerously malicious payload, indicating that they were victims of this model. After receiving multiple reports, the Hugging Face platform blocked the model. / Community Reports issues in star23/baller8 model page"
+    },
+    "hub": {
+      "repo": "star23/baller8",
+      "path": "pytorch_model.bin",
+      "revision": "ca99bfa2cfc9e4790fbcd59a067ca5f0c1fb0717",
+      "api_url": "https://huggingface.co/api/models/star23/baller8?blobs=true",
+      "read_on": "2026-10-14",
+      "size": 231134,
+      "blob_id": "70192e8eafd9bb2b4d79583eb48c82bb25fee45a",
+      "disabled": true,
+      "last_modified": "2023-12-13T18:59:13Z"
+    }
+  },
+  "added": "2026-10-14"
+}

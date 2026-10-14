@@ -1,0 +1,46 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "qwen2.5-instruct",
+  "status": "active",
+  "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "bytes": 2507,
+  "text": "texts/templates/cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f.jinja",
+  "what": "Chat template of the Qwen2.5 Instruct models (ChatML turns).",
+  "upstream": {
+    "repo": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/a09a35458c702b33eeacc393d103063234e8bc28/tokenizer_config.json",
+    "file_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+    "file_bytes": 7305,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "LICENSE file in the repository at this revision (Apache License 2.0, appendix filled in as Copyright 2024 Alibaba Cloud) and the card's license: apache-2.0",
+    "license_text": "LICENSES/Apache-2.0-Qwen.txt",
+    "license_file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "copyright": "Copyright 2024 Alibaba Cloud."
+  },
+  "also_identical_at": [
+    {
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "file": "tokenizer_config.json",
+      "field": "chat_template",
+      "read_on": "2026-10-14",
+      "how": "downloaded and compared"
+    }
+  ],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in Qwen/Qwen2.5-7B-Instruct at revision a09a35458c70 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 6 of 6 probe conversations; text it adds of its own: the default system prompt \"You are Qwen, created by Alibaba Cloud. You are a helpful assistant.\" when the conversation has none, and Hermes-style tool-call instructions when tools are given; nothing is added under a content condition."
+  ],
+  "notes": "ChatML layout (<|im_start|>role ... <|im_end|>). Inserts the default system prompt when the first message is not a system message. With tools, writes them as JSON inside <tools></tools> in the system turn and asks for calls in <tool_call></tool_call>. Tool results are wrapped in <tool_response> inside a user turn. Conditions test roles, loop position, and whether tools or tool_calls are present; none tests message text. The Qwen2.5-3B and -72B repositories carry the same text under non-Apache licenses (the research report, section 2.2); the feed cites the Apache-licensed repositories only.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

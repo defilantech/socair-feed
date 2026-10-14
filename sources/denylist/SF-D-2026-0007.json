@@ -1,0 +1,23 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0007",
+  "status": "active",
+  "sha256": "4fba92a34fd9338293de53444bc9f05c278897d903a24efb95fde0522b3d50c0",
+  "file": "start.bat",
+  "size": null,
+  "kind": "loader-script",
+  "what": "Windows batch file from Open-OSS/privacy-filter; the repository's README told users to run it (or python loader.py) to start the attack chain.",
+  "evidence": {
+    "class": 1,
+    "basis": "HiddenLayer prints this SHA-256 for start.bat in the report's indicators of compromise, and its analysis says the README instructed users to run start.bat.",
+    "source": {
+      "publisher": "HiddenLayer",
+      "title": "Malware Found in Trending Hugging Face Repository \"Open-OSS/privacy-filter\"",
+      "url": "https://www.hiddenlayer.com/research/malware-found-in-trending-hugging-face-repository-open-oss-privacy-filter",
+      "published": "2026-05-07",
+      "read_on": "2026-10-14",
+      "quote": "6d5b1b7b9b95f2074094632e3962dc21432c2b7dccfbbe2c7d61f724ffcfea7c — loader.py / 4fba92a34fd9338293de53444bc9f05c278897d903a24efb95fde0522b3d50c0 — start.bat"
+    }
+  },
+  "added": "2026-10-14"
+}

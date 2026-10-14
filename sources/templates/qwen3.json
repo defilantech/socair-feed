@@ -1,0 +1,37 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "qwen3",
+  "status": "active",
+  "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "bytes": 4168,
+  "text": "texts/templates/a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8.jinja",
+  "what": "Chat template of Qwen3 (ChatML turns with <think> reasoning blocks).",
+  "upstream": {
+    "repo": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/Qwen/Qwen3-8B/blob/b968826d9c46dd6066d109eabc6255188de91218/tokenizer_config.json",
+    "file_sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "file_bytes": 9732,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "LICENSE file in the repository at this revision (Apache License 2.0, appendix filled in as Copyright 2024 Alibaba Cloud) and the card's license: apache-2.0",
+    "license_text": "LICENSES/Apache-2.0-Qwen.txt",
+    "license_file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "copyright": "Copyright 2024 Alibaba Cloud."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in Qwen/Qwen3-8B at revision b968826d9c46 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 6 of 6 probe conversations; text it adds of its own: Hermes-style tool-call instructions when tools are given; nothing is added under a content condition."
+  ],
+  "notes": "ChatML layout with no default system prompt. Two conditions read message text, and both remove or move text rather than add it: an assistant message containing </think> is split into reasoning and answer, and user messages wrapped in <tool_response> tags are skipped when finding the last real query. Writes <think> blocks for assistant turns after the last query, and an empty <think></think> at the generation prompt when enable_thinking is false. Tools are written as JSON in the system turn, as in Qwen2.5.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

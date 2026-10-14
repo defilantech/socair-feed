@@ -1,0 +1,31 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "phi-4",
+  "status": "active",
+  "what": "Tokenizer of Phi-4 (100,352 ids).",
+  "upstream": {
+    "repo": "microsoft/phi-4",
+    "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/microsoft/phi-4/blob/2db69c1c3e91a05d2c64a3185acfbaf36f744e25/tokenizer.json",
+    "file_sha256": "9f38d05d9d25756bb2f181ab5a0cebcd59e638df10336fc7ed1010f7296d0298",
+    "file_bytes": 4253055,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-Microsoft.txt",
+    "license_file_sha256": "c49419617a6070bcb197cfe272f7007fdec3e790dbb529cb995473bd69c0bd51",
+    "copyright": "Copyright (c) Microsoft Corporation."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/phi-4.json",
+    "sha256": "3823618432f3e7e86c21da44d18b40120baf7db348a745313bb1784cb41091d9",
+    "tokens": 100352,
+    "unassigned": 0,
+    "vocab_sha256": "62916ca5b5628762db2c869b1e1a5e32c7e304692ae37b2365fa862948d0fe54",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

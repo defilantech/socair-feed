@@ -1,0 +1,25 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "phi-3-mini",
+  "status": "active",
+  "what": "Tokenizer of Phi-3-mini-4k-instruct (32,064 ids).",
+  "upstream": {
+    "repo": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": "f39ac1d28e925b323eae81227eaba4464caced4e",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/f39ac1d28e925b323eae81227eaba4464caced4e/tokenizer.json",
+    "file_sha256": "072ab882d6c7192a42f78790945d16c064691321a73251a4b18f6a380f0fbe39",
+    "file_bytes": 1937869,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-Microsoft.txt",
+    "license_file_sha256": "c49419617a6070bcb197cfe272f7007fdec3e790dbb529cb995473bd69c0bd51",
+    "copyright": "Copyright (c) Microsoft Corporation."
+  },
+  "also_identical_at": [],
+  "form": "hash-only",
+  "table": null,
+  "hash_only_reason": "The repository's tokenizer.model is byte-identical to the LLaMA tokenizer.model (sha256 9e556afd…, see sources/goodware.txt), so this vocabulary may carry the LLaMA family's license terms as well as the repository's MIT license. Until that is read by counsel, the feed lists the file's hash and ships no table (decision D8).",
+  "added": "2026-10-14"
+}

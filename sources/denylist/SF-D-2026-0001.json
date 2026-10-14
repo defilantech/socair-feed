@@ -1,0 +1,23 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0001",
+  "status": "active",
+  "sha256": "6cb644fb1e1739b6907a86bddff7452bd965a08f21c3b70f13410e22d11b219b",
+  "file": "ws.pth",
+  "size": 495,
+  "kind": "pickle-checkpoint",
+  "what": "PyTorch .pth pickle uploaded to a Hugging Face account; when loaded with torch.load it runs a shell command that downloads a script from 194.34.254.219:10410 and pipes it to sh.",
+  "evidence": {
+    "class": 1,
+    "basis": "Rapid7 prints this SHA-256 for ws.pth in the report's indicators of compromise and describes the command the pickle runs when it is deserialized.",
+    "source": {
+      "publisher": "Rapid7",
+      "title": "From .pth to p0wned: Abuse of Pickle Files in AI Model Supply Chains",
+      "url": "https://www.rapid7.com/blog/post/from-pth-to-p0wned-abuse-of-pickle-files-in-ai-model-supply-chains/",
+      "published": "2025-07-01",
+      "read_on": "2026-10-14",
+      "quote": "Filename: ws.pth / Filesize: 495 bytes (495 B) / MD5: 5925ee590d5a03efdcbc38c6e6078fae / SHA1: 4cc45d1ae409b58794e84d06161ef8d779e62de2 / SHA256: 6cb644fb1e1739b6907a86bddff7452bd965a08f21c3b70f13410e22d11b219b"
+    }
+  },
+  "added": "2026-10-14"
+}

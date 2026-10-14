@@ -1,0 +1,37 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "phi-3-mini-4k-instruct",
+  "status": "active",
+  "sha256": "dcaee66df77bfbb789ec541fe713218da30225a526f1db97138fc39ee6dc56aa",
+  "bytes": 407,
+  "text": "texts/templates/dcaee66df77bfbb789ec541fe713218da30225a526f1db97138fc39ee6dc56aa.jinja",
+  "what": "Chat template of Phi-3-mini-4k-instruct.",
+  "upstream": {
+    "repo": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": "f39ac1d28e925b323eae81227eaba4464caced4e",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/f39ac1d28e925b323eae81227eaba4464caced4e/tokenizer_config.json",
+    "file_sha256": "32f66c2bab499baaa8341819ad9a13342f957501ce1e989bcb90853a01336cc0",
+    "file_bytes": 3441,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-Microsoft.txt",
+    "license_file_sha256": "c49419617a6070bcb197cfe272f7007fdec3e790dbb529cb995473bd69c0bd51",
+    "copyright": "Copyright (c) Microsoft Corporation."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in microsoft/Phi-3-mini-4k-instruct at revision f39ac1d28e92 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 4 of 4 probe conversations; text it adds of its own: nothing; nothing is added under a content condition."
+  ],
+  "notes": "Writes each system, user, and assistant message as <|role|> newline content <|end|>, ignores any other role, and ends with the assistant opener at the generation prompt or the EOS token otherwise. No default system prompt, no tools, and no condition on message text. The tokenizer of this model is listed by hash only (tokenizers/phi-3-mini); the template is the publisher's own text under MIT.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

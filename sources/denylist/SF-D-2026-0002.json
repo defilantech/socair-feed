@@ -1,0 +1,23 @@
+{
+  "schema": "socair-feed/denylist-entry/v1",
+  "id": "SF-D-2026-0002",
+  "status": "active",
+  "sha256": "06b4c8c7032dc5619f18e6f0ebeae71ce06ea96b10214ca9b693cfb589c4bb6d",
+  "file": "wsc.pth",
+  "size": 1583,
+  "kind": "pickle-checkpoint",
+  "what": "PyTorch .pth pickle from the same Hugging Face account; when loaded it downloads the ELF beacon ws_linux_amd64 (SF-D-2026-0004) from the same repository and runs it.",
+  "evidence": {
+    "class": 1,
+    "basis": "Rapid7 prints this SHA-256 for wsc.pth in the report's indicators of compromise and describes what the pickle downloads and runs.",
+    "source": {
+      "publisher": "Rapid7",
+      "title": "From .pth to p0wned: Abuse of Pickle Files in AI Model Supply Chains",
+      "url": "https://www.rapid7.com/blog/post/from-pth-to-p0wned-abuse-of-pickle-files-in-ai-model-supply-chains/",
+      "published": "2025-07-01",
+      "read_on": "2026-10-14",
+      "quote": "Filename: wsc.pth / Filesize:1583 bytes (1.5 KB) / MD5: c26a2e09028b17eac33cf5e070c6b9f2 / SHA1: 6927b8ebe37da19e3996f0c5dc657c95fbf00b0a / SHA256: 06b4c8c7032dc5619f18e6f0ebeae71ce06ea96b10214ca9b693cfb589c4bb6d"
+    }
+  },
+  "added": "2026-10-14"
+}

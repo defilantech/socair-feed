@@ -1,0 +1,31 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "deepseek-r1",
+  "status": "active",
+  "what": "Tokenizer of DeepSeek-R1 (128,815 ids).",
+  "upstream": {
+    "repo": "deepseek-ai/DeepSeek-R1",
+    "revision": "56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad/tokenizer.json",
+    "file_sha256": "ecb6f9fc369894346f0511f4074ca75cee5cd5f3b06d02f1ba35fcd39f8e121d",
+    "file_bytes": 7847602,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-DeepSeek.txt",
+    "license_file_sha256": "1c8f573e830ca9b3ebfeb7ace1823146e22b66f99ee223840e7637c9e745e1c7",
+    "copyright": "Copyright (c) 2023 DeepSeek."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/deepseek-r1.json",
+    "sha256": "5b8aa413403487a623658f63e8b8e163c10a1803f355921fe381bb4edd0eb602",
+    "tokens": 128815,
+    "unassigned": 0,
+    "vocab_sha256": "673a0ae37a840b34f89b4e68814454d940ef354517178661151045889ec28b04",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

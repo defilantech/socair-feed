@@ -1,0 +1,30 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "mistral-nemo",
+  "status": "active",
+  "what": "Tokenizer of Mistral-Nemo-Instruct-2407 (Tekken, 131,072 ids), from its tokenizer.json; Socair reads tokenizer.json, not tekken.json.",
+  "upstream": {
+    "repo": "mistralai/Mistral-Nemo-Instruct-2407",
+    "revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/blob/04d8a90549d23fc6bd7f642064003592df51e9b3/tokenizer.json",
+    "file_sha256": "e11c71726323d33da7b8d6f6f269f1988931c0a52b7122bcdd8c05042974e0db",
+    "file_bytes": 9264445,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 at this revision; the repository has no LICENSE file, so the canonical Apache License 2.0 text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/mistral-nemo.json",
+    "sha256": "a14dfa738ba367e55b43049936ec819d7ece4cb0be754ddf02092f55eb5a11fa",
+    "tokens": 131072,
+    "unassigned": 0,
+    "vocab_sha256": "be5d727c90b5d33e0d64deb5edb6baa443d3133f508fb001859edcf843661ae4",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

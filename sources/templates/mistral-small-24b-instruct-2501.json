@@ -1,0 +1,36 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "mistral-small-24b-instruct-2501",
+  "status": "active",
+  "sha256": "3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005",
+  "bytes": 1597,
+  "text": "texts/templates/3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005.jinja",
+  "what": "Chat template of Mistral-Small-24B-Instruct-2501.",
+  "upstream": {
+    "repo": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501/blob/9527884be6e5616bdd54de542f9ae13384489724/tokenizer_config.json",
+    "file_sha256": "85090a231c4b1432c95cf62d5857777df08c0939fc698bf89b91ccc96f92400e",
+    "file_bytes": 199695,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 at this revision; the repository has no LICENSE file, so the canonical Apache License 2.0 text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in mistralai/Mistral-Small-24B-Instruct-2501 at revision 9527884be6e5 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 4 of 4 probe conversations; text it adds of its own: a default system prompt when the conversation has none (\"You are Mistral Small 3, a Large Language Model (LLM) created by Mistral AI ...\", with the current date from strftime_now and guidance to ask for clarification rather than guess); nothing is added under a content condition."
+  ],
+  "notes": "Writes [SYSTEM_PROMPT] ... [/SYSTEM_PROMPT] (the conversation's system message, or the publisher's default one), then [INST] ... [/INST] for user turns and assistant content followed by EOS. Raises an error for any role but system, user, and assistant. No tools and no condition on message text.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

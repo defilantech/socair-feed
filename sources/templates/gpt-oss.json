@@ -1,0 +1,44 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "gpt-oss",
+  "status": "active",
+  "sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146",
+  "bytes": 16738,
+  "text": "texts/templates/a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146.jinja",
+  "what": "Chat template of gpt-oss (the harmony response format).",
+  "upstream": {
+    "repo": "openai/gpt-oss-20b",
+    "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+    "file": "chat_template.jinja",
+    "url": "https://huggingface.co/openai/gpt-oss-20b/blob/6cee5e81ee83917806bbde320786a8fb61efebee/chat_template.jinja",
+    "file_sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146",
+    "file_bytes": 16738,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "LICENSE file in the repository at this revision (Apache License 2.0) and the card's license: apache-2.0",
+    "license_text": "LICENSES/Apache-2.0-gpt-oss.txt",
+    "license_file_sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "copyright": "The upstream LICENSE leaves the appendix's copyright line unfilled."
+  },
+  "also_identical_at": [
+    {
+      "repo": "openai/gpt-oss-120b",
+      "revision": "b5c939de8f754692c1647ca79fbf85e8c1e70f8a",
+      "file": "chat_template.jinja",
+      "read_on": "2026-10-14",
+      "how": "downloaded and compared"
+    }
+  ],
+  "checks": [
+    "Byte-identical to upstream: chat_template.jinja in openai/gpt-oss-20b at revision 6cee5e81ee83 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 6 of 6 probe conversations (2 trigger probes refused: the template raises an error, by design, when message content carries <|channel|> tags); text it adds of its own: a system message naming the model (\"You are ChatGPT, a large language model trained by OpenAI.\" unless model_identity is given), its knowledge cutoff, the current date (strftime_now), and the reasoning effort; the tools namespace rendered as TypeScript-like declarations; channel and recipient markers; nothing is added under a content condition."
+  ],
+  "notes": "Harmony layout (<|start|>role<|message|>...<|end|>, with analysis, commentary, and final channels). Always writes a system message with identity, dates, and reasoning effort; a user's system message becomes a developer message. Tool schemas are rendered as TypeScript-style function declarations, and builtin_tools can add browser and python tool descriptions. Message text is tested only to refuse <|channel|> tags in content or thinking, which raises an exception instead of adding text. The file is a standalone chat_template.jinja with no trailing newline; the tokenizer_config.json at this revision has no chat_template field.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

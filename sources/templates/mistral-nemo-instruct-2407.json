@@ -1,0 +1,36 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "mistral-nemo-instruct-2407",
+  "status": "active",
+  "sha256": "e4676cb56dffea7782fd3e2b577cfaf1e123537e6ef49b3ec7caa6c095c62272",
+  "bytes": 3945,
+  "text": "texts/templates/e4676cb56dffea7782fd3e2b577cfaf1e123537e6ef49b3ec7caa6c095c62272.jinja",
+  "what": "Chat template of Mistral-Nemo-Instruct-2407.",
+  "upstream": {
+    "repo": "mistralai/Mistral-Nemo-Instruct-2407",
+    "revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/blob/04d8a90549d23fc6bd7f642064003592df51e9b3/tokenizer_config.json",
+    "file_sha256": "67f3aeef765b7d78012a081dba98efd4900cd2bac24eac182296841c7e2aef2a",
+    "file_bytes": 181297,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 at this revision; the repository has no LICENSE file, so the canonical Apache License 2.0 text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in mistralai/Mistral-Nemo-Instruct-2407 at revision 04d8a90549d2 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 5 of 6 probe conversations (1 refused: the tool call and result probe, because the template requires 9-character tool call ids and raises an error otherwise); text it adds of its own: the [AVAILABLE_TOOLS] list scaffolding when tools are given; nothing is added under a content condition."
+  ],
+  "notes": "The same structure as mistral-7b-instruct-v0.3, without the spaces after [INST], [AVAILABLE_TOOLS], [TOOL_CALLS], and [TOOL_RESULTS], and without trimming assistant content. The system message is prepended to the last user message. No default system prompt and no condition on message text.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

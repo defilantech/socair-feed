@@ -1,0 +1,30 @@
+{
+  "schema": "socair-feed/tokenizer-entry/v1",
+  "name": "mistral-small-2501",
+  "status": "active",
+  "what": "Tokenizer of Mistral-Small-24B-Instruct-2501 (Tekken, 131,072 ids), from its tokenizer.json.",
+  "upstream": {
+    "repo": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+    "file": "tokenizer.json",
+    "url": "https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501/blob/9527884be6e5616bdd54de542f9ae13384489724/tokenizer.json",
+    "file_sha256": "b76085f9923309d873994d444989f7eb6ec074b06f25b58f1e8d7b7741070949",
+    "file_bytes": 17078037,
+    "read_on": "2026-10-14",
+    "license": "Apache-2.0",
+    "license_evidence": "The model card's front matter says license: apache-2.0 at this revision; the repository has no LICENSE file, so the canonical Apache License 2.0 text ships",
+    "license_text": "LICENSES/Apache-2.0.txt",
+    "copyright": "The repository has no LICENSE or NOTICE file and states no copyright line."
+  },
+  "also_identical_at": [],
+  "form": "table",
+  "table": {
+    "file": "texts/tokenizers/mistral-small-2501.json",
+    "sha256": "81b246a3381557923f8bd544686f6748ddd3df4e0608142361fca88548d88f3a",
+    "tokens": 131072,
+    "unassigned": 0,
+    "vocab_sha256": "d482f39d2f111f66008a84942fd7c102a3dab4fb0f7cc8b4968bb1db0299003d",
+    "derived_with": "socair feed tokenizer-table, defilantech/socair@ddfe650b5f50 (2026-10-14): the tokenizer.json vocabulary and added tokens laid out in id order"
+  },
+  "added": "2026-10-14"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "socair-feed/template-entry/v1",
+  "name": "deepseek-r1",
+  "status": "active",
+  "sha256": "563b1ce7d61d50a9b4c7439a912a1116f095b712df5b5e4d3e1116049874eb64",
+  "bytes": 2765,
+  "text": "texts/templates/563b1ce7d61d50a9b4c7439a912a1116f095b712df5b5e4d3e1116049874eb64.jinja",
+  "what": "Chat template of DeepSeek-R1.",
+  "upstream": {
+    "repo": "deepseek-ai/DeepSeek-R1",
+    "revision": "56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad",
+    "file": "tokenizer_config.json",
+    "field": "chat_template",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad/tokenizer_config.json",
+    "file_sha256": "99e80c96269ca4430f1e67f67b5766cb096cbac96fed7a7c611c6ee088b3a039",
+    "file_bytes": 3594,
+    "read_on": "2026-10-14",
+    "license": "MIT",
+    "license_evidence": "LICENSE file in the repository at this revision (MIT License) and the card's license: mit",
+    "license_text": "LICENSES/MIT-DeepSeek.txt",
+    "license_file_sha256": "1c8f573e830ca9b3ebfeb7ace1823146e22b66f99ee223840e7637c9e745e1c7",
+    "copyright": "Copyright (c) 2023 DeepSeek."
+  },
+  "also_identical_at": [],
+  "checks": [
+    "Byte-identical to upstream: the chat_template field of tokenizer_config.json (JSON-decoded) in deepseek-ai/DeepSeek-R1 at revision 56d4cbbb4d29 equals the text (go run ./tools/feedbuild upstream re-checks it). Last checked 2026-10-14.",
+    "Socair's chat-template check (defilantech/socair@ddfe650b5f50, the RealTemplates corpus gate, 2026-10-14): PASS, with no code reach and no content-conditional injection; rendered 5 of 6 probe conversations (1 refused: the tool call and result probe, because the template concatenates tool-call arguments as a string and the probe passes an object); text it adds of its own: nothing; nothing is added under a content condition."
+  ],
+  "notes": "Concatenates all system messages after the BOS token, then writes turns with the full-width markers <｜User｜> and <｜Assistant｜>, tool calls and outputs with DeepSeek's tool markers, and <｜Assistant｜><think> newline at the generation prompt. One condition reads message text: an assistant message containing </think> keeps only the text after it, which removes the earlier reasoning rather than adding anything. This text is the R1 repository's; the R1 Distill repositories were not checked and are not covered.",
+  "review": {
+    "means": "A person read the whole template text at the pinned revision and confirmed that it only lays out the conversation it is given: it adds no instruction to the model beyond the publisher's own default system prompt and tool scaffolding, no branch adds text when a message contains a particular string, and it reaches nothing but the documented chat-template variables and filters. Byte identity with the upstream file and Socair's chat-template check are mechanical checks, listed under checks; they are not the review.",
+    "status": "pending",
+    "by": "",
+    "on": ""
+  },
+  "added": "2026-10-14"
+}

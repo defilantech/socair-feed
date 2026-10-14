@@ -1,0 +1,123 @@
+Socair project feed
+https://github.com/defilantech/socair-feed
+
+The known-bad hashes, labels, and citations (denylist.txt, templates.txt,
+tokenizers.txt, and the source records they are built from) are dedicated
+to the public domain under CC0 1.0 (LICENSES/CC0-1.0.txt). The build tooling
+is licensed under the Apache License 2.0.
+
+The files below are copies of upstream files, or are derived from them, and
+stay under their upstream licenses. In the repository they are under texts/;
+in a released feed, under feed/.
+
+templates/563b1ce7d61d50a9b4c7439a912a1116f095b712df5b5e4d3e1116049874eb64.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in deepseek-ai/DeepSeek-R1 at revision 56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad.
+  License: MIT (LICENSES/MIT-DeepSeek.txt). Copyright (c) 2023 DeepSeek.
+
+templates/22e97ba043dacf9df1f071a9de9d2bb6b0757491f16e96e810834b86e1641286.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in deepseek-ai/DeepSeek-V3-0324 at revision e9b33add76883f293d6bf61f6bd89b497e80e335.
+  License: MIT (LICENSES/MIT-DeepSeek.txt). Copyright (c) 2023 DeepSeek.
+
+templates/0a2c8073c878ab1da004bee933a998606537bbb62016310352c7285c3f01c5b5.jinja
+  Copied byte for byte from chat_template.jinja in google/gemma-4-E4B-it at revision ee0ef6023621cff504d758262d4e04895a5af4a2.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+templates/ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4.jinja
+  Copied byte for byte from chat_template.jinja in google/gemma-4-12B-it at revision 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+templates/a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146.jinja
+  Copied byte for byte from chat_template.jinja in openai/gpt-oss-20b at revision 6cee5e81ee83917806bbde320786a8fb61efebee.
+  License: Apache-2.0 (LICENSES/Apache-2.0-gpt-oss.txt). The upstream LICENSE leaves the appendix's copyright line unfilled.
+
+templates/e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in mistralai/Mistral-7B-Instruct-v0.3 at revision c170c708c41dac9275d15a8fff4eca08d52bab71.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+templates/e4676cb56dffea7782fd3e2b577cfaf1e123537e6ef49b3ec7caa6c095c62272.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in mistralai/Mistral-Nemo-Instruct-2407 at revision 04d8a90549d23fc6bd7f642064003592df51e9b3.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+templates/3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in mistralai/Mistral-Small-24B-Instruct-2501 at revision 9527884be6e5616bdd54de542f9ae13384489724.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+templates/dcaee66df77bfbb789ec541fe713218da30225a526f1db97138fc39ee6dc56aa.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in microsoft/Phi-3-mini-4k-instruct at revision f39ac1d28e925b323eae81227eaba4464caced4e.
+  License: MIT (LICENSES/MIT-Microsoft.txt). Copyright (c) Microsoft Corporation.
+
+templates/fe4120415a3858b873955c92ce3a103a95bc97c2cb00b72e62659aaf0f891ee5.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in microsoft/phi-4 at revision 2db69c1c3e91a05d2c64a3185acfbaf36f744e25.
+  License: MIT (LICENSES/MIT-Microsoft.txt). Copyright (c) Microsoft Corporation.
+
+templates/cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in Qwen/Qwen2.5-7B-Instruct at revision a09a35458c702b33eeacc393d103063234e8bc28.
+  License: Apache-2.0 (LICENSES/Apache-2.0-Qwen.txt). Copyright 2024 Alibaba Cloud.
+
+templates/d5495a1e5db0611132a97e46a65dbb64a642a499421228b9c8b93229097fa9a4.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in Qwen/Qwen2.5-7B-Instruct at revision 52e20a6f5f475e5c8f6a8ebda4ae5fa6b1ea22ac.
+  License: Apache-2.0 (LICENSES/Apache-2.0-Qwen.txt). Copyright 2024 Alibaba Cloud.
+
+templates/a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8.jinja
+  Copied byte for byte from the chat_template field of tokenizer_config.json in Qwen/Qwen3-8B at revision b968826d9c46dd6066d109eabc6255188de91218.
+  License: Apache-2.0 (LICENSES/Apache-2.0-Qwen.txt). Copyright 2024 Alibaba Cloud.
+
+tokenizers/deepseek-r1.json
+  Derived from tokenizer.json in deepseek-ai/DeepSeek-R1 at revision 56d4cbbb4d29f4355bab4b9a39ccb717a14ad5ad.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: MIT (LICENSES/MIT-DeepSeek.txt). Copyright (c) 2023 DeepSeek.
+
+tokenizers/deepseek-v3.json
+  Derived from tokenizer.json in deepseek-ai/DeepSeek-V3-0324 at revision e9b33add76883f293d6bf61f6bd89b497e80e335.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: MIT (LICENSES/MIT-DeepSeek.txt). Copyright (c) 2023 DeepSeek.
+
+tokenizers/gemma-4.json
+  Derived from tokenizer.json in google/gemma-4-E4B-it at revision ee0ef6023621cff504d758262d4e04895a5af4a2.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+tokenizers/gpt-oss.json
+  Derived from tokenizer.json in openai/gpt-oss-20b at revision 6cee5e81ee83917806bbde320786a8fb61efebee.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0-gpt-oss.txt). The upstream LICENSE leaves the appendix's copyright line unfilled.
+
+tokenizers/mistral-nemo.json
+  Derived from tokenizer.json in mistralai/Mistral-Nemo-Instruct-2407 at revision 04d8a90549d23fc6bd7f642064003592df51e9b3.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+tokenizers/mistral-small-2501.json
+  Derived from tokenizer.json in mistralai/Mistral-Small-24B-Instruct-2501 at revision 9527884be6e5616bdd54de542f9ae13384489724.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+tokenizers/mistral-v3.json
+  Derived from tokenizer.json in mistralai/Mistral-7B-Instruct-v0.3 at revision c170c708c41dac9275d15a8fff4eca08d52bab71.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0.txt). The repository has no LICENSE or NOTICE file and states no copyright line.
+
+tokenizers/phi-4.json
+  Derived from tokenizer.json in microsoft/phi-4 at revision 2db69c1c3e91a05d2c64a3185acfbaf36f744e25.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: MIT (LICENSES/MIT-Microsoft.txt). Copyright (c) Microsoft Corporation.
+
+tokenizers/qwen2.5.json
+  Derived from tokenizer.json in Qwen/Qwen2.5-7B-Instruct at revision a09a35458c702b33eeacc393d103063234e8bc28.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0-Qwen.txt). Copyright 2024 Alibaba Cloud.
+
+tokenizers/qwen3.json
+  Derived from tokenizer.json in Qwen/Qwen3-8B at revision b968826d9c46dd6066d109eabc6255188de91218.
+  Changed: reduced to the vocabulary and added tokens in id order, written as a
+  socair.tokenizer-table/v1 table by `socair feed tokenizer-table`. Nothing was added.
+  License: Apache-2.0 (LICENSES/Apache-2.0-Qwen.txt). Copyright 2024 Alibaba Cloud.
