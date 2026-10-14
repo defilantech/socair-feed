@@ -1,0 +1,6 @@
+# Build output never goes in the tree: build into a scratch directory.
+/out/
+/candidate/
+*.tar.gz
+# A private signing key must never be committed, here or anywhere.
+*.key
