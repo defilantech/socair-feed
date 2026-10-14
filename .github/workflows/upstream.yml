@@ -12,9 +12,16 @@ name: upstream
 # - expiry: the latest published feed is not in the last third of its
 #   validity, the window in which Socair starts warning every site that uses
 #   it. A missed renewal stops every scan at every site at expiry.
+#
+# A push that changes a record also runs it, so a new entry's sources are read
+# once by a machine other than the contributor's.
 on:
   schedule:
     - cron: "17 6 * * 1"
+  push:
+    paths:
+      - "sources/**"
+      - "texts/**"
   workflow_dispatch:
 
 permissions:

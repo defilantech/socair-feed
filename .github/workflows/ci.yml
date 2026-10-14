@@ -6,9 +6,10 @@ name: ci
 # maintainer to verify and sign offline (RELEASING.md). Nothing here holds a
 # signing key, signs a release, or publishes anything. Every job is hermetic
 # except the checkouts and the Go toolchain download.
+# It runs on every push, to any branch, so a branch is checked before anyone
+# opens a pull request for it.
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
